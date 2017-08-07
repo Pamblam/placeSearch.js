@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<body>
+        <input id="autocomplete" placeholder="Enter your address" type="text"></input>
+		<div id='map' style='height:10em'></div>
+		<div id='results'></div>
+		<script src='//code.jquery.com/jquery-2.2.4.min.js'></script>
+		<script src='placeSearch.js'></script>
+		<script>
+			$("#autocomplete").placeSearch({
+				key: "AIzaSyBNqBl2R6u8pONv3CWyXev-otesQf-1Ypo",
+				type: "restaurant",
+				map: "#map",
+				markerCallback: function(place){
+					$("#results").text(JSON.stringify(place));
+				},
+				callback: function(places){
+					$("#results").text(JSON.stringify(places));
+				}
+			});
+		</script>
+	</body>
+</html>
